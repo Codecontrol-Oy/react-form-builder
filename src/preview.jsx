@@ -272,6 +272,12 @@ export default class Preview extends React.Component {
     const data = this.state.data.filter(x => !!x && !x.parentId);
     let items = data.map((item, index) => this.getElement(item, index));
 
+    items = items.map((item, index) => {
+      return <div>
+        <h3>{index} + ". Kysymys"</h3>
+        {item}
+      </div>
+    })
     return (
       <div className={classes}>
         <div className="edit-form" ref={this.editForm}>

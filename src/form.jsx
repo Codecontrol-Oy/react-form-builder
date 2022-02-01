@@ -356,12 +356,11 @@ export default class ReactForm extends React.Component {
 
     items = items.map((item, index) => {
       return <div>
-        <h3>`${index}. Kysymys`</h3>
+        <h3>{index} + ". Kysymys"</h3>
         {item}
       </div>
     })
 
-    console.log(items)
     return (
       <div>
         <FormValidator emitter={this.emitter} />
