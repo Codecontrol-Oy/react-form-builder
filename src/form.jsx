@@ -312,7 +312,7 @@ export default class ReactForm extends React.Component {
       }
     });
 
-    const items = data_items.filter(x => !x.parentId).map(item => {
+    let items = data_items.filter(x => !x.parentId).map(item => {
       if (!item) return null;
       switch (item.element) {
         case 'TextInput':
@@ -353,6 +353,13 @@ export default class ReactForm extends React.Component {
     };
 
     const backName = (this.props.back_name) ? this.props.back_name : 'Cancel';
+
+    items = items.map((item, index) => {
+      return <div>
+        <h3>`${index}. Kysymys`</h3>
+        {item}
+      </div>
+    })
 
     return (
       <div>
