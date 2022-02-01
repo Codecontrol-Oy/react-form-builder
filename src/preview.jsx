@@ -274,7 +274,7 @@ export default class Preview extends React.Component {
 
     items = items.map((item, index) => {
       return <div>
-        <h3>{index} + ". Kysymys"</h3>
+        <h3>{index}. Kysymys</h3>
         {item}
       </div>
     })
