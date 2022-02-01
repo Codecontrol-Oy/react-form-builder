@@ -361,6 +361,7 @@ export default class ReactForm extends React.Component {
       </div>
     })
 
+    console.log(items)
     return (
       <div>
         <FormValidator emitter={this.emitter} />
