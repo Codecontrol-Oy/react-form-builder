@@ -345,7 +345,7 @@ export default class Toolbar extends React.Component {
 
     if (item.options) {
       if (item.options.length > 0) {
-        elementOptions.options = item.options;
+        elementOptions.options = [...item.options];
       } else {
         elementOptions.options = Toolbar._defaultItemOptions(elementOptions.element);
       }
