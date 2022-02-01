@@ -312,7 +312,8 @@ export default class ReactForm extends React.Component {
       }
     });
 
-    let items = data_items.filter(x => !x.parentId).map(item => {
+    let questionNumber = 1;
+    let items = data_items.filter(x => !x.parentId).map((item, index) => {
       if (!item) return null;
       switch (item.element) {
         case 'TextInput':
@@ -326,6 +327,14 @@ export default class ReactForm extends React.Component {
         case 'Range':
           return this.getInputElement(item);
         case 'CustomElement':
+          if(item.key.toLowerCase().includes("paragraph") || item.key.toLowerCase().includes("title")) {
+            const currNumber = questionNumber
+            questionNumber = questionNumber + 1;
+            return <div>
+              <h3>{currNumber}. Kysymys</h3>
+              {item}
+            </div>
+          }
           return this.getCustomElement(item);
         case 'FourColumnRow':
           return this.getContainerElement(item, FourColumnRow);
@@ -353,13 +362,6 @@ export default class ReactForm extends React.Component {
     };
 
     const backName = (this.props.back_name) ? this.props.back_name : 'Cancel';
-
-    items = items.map((item, index) => {
-      return <div>
-        <h3>{index + 1}. Kysymys</h3>
-        {item}
-      </div>
-    })
 
     return (
       <div>
