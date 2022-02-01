@@ -332,7 +332,7 @@ export default class ReactForm extends React.Component {
             questionNumber = questionNumber + 1;
             return <div>
               <h3>{currNumber}. Kysymys</h3>
-              {item}
+              {this.getCustomElement(item)}
             </div>
           }
           return this.getCustomElement(item);
