@@ -328,7 +328,7 @@ export default class ReactForm extends React.Component {
         case 'Range':
           return this.getInputElement(item);
         case 'CustomElement':
-          if(!item.key.toString().toLowerCase().includes("paragraph") || !item.key.toString().toLowerCase().includes("title") || !this.disableAutomaticNumberingForKeys.includes(item.key.toString())) {
+          if(!item.key.toString().toLowerCase().includes("paragraph") && !item.key.toString().toLowerCase().includes("title") && !this.disableAutomaticNumberingForKeys.includes(item.key.toString())) {
             const currNumber = questionNumber
             questionNumber = questionNumber + 1;
             return <div>
