@@ -25,6 +25,7 @@ export default class ReactForm extends React.Component {
   constructor(props) {
     super(props);
     this.answerData = this._convert(props.answer_data);
+    this.disableAutomaticNumberingForKeys = props.disableAutomaticNumberingForKeys || []
     this.emitter = new EventEmitter();
     this.getDataById = this.getDataById.bind(this);
   }
@@ -327,7 +328,7 @@ export default class ReactForm extends React.Component {
         case 'Range':
           return this.getInputElement(item);
         case 'CustomElement':
-          if(!item.key.toLowerCase().includes("paragraph") || !item.key.toLowerCase().includes("title")) {
+          if(!item.key.toLowerCase().includes("paragraph") || !item.key.toLowerCase().includes("title") || !this.disableAutomaticNumberingForKeys.includes(item.key)) {
             const currNumber = questionNumber
             questionNumber = questionNumber + 1;
             return <div>
