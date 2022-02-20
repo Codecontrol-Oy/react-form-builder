@@ -14,6 +14,7 @@ function buildItemGroups(itemGroups, defaultItems) {
       let modifiedItems = [...group.items]
       modifiedItems = buildItems(modifiedItems, defaultItems)
       modifiedGroup.items = modifiedItems
+      console.log(modifiedGroup)
       return modifiedGroup
     })
   }
@@ -41,6 +42,7 @@ export default class Toolbar extends React.Component {
     super(props);
     //const items = buildItems(props.items, this._defaultItems());
     const items = buildItemGroups(props.items, this._defaultItems())
+    console.log(items)
     this.state = {
       items,
     };
