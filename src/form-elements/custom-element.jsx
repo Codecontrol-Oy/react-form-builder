@@ -37,7 +37,7 @@ class CustomElement extends Component {
       <div className={baseClasses}>
         <ComponentHeader {...this.props} />
         { bare ?
-          <Element data={this.props.data} {...this.props.data.props} {...props} /> :
+          <Element questionNumber={this.props.questionNumber} data={this.props.data} {...this.props.data.props} {...props} /> :
           <div className="form-group">
             <ComponentLabel className="form-label" labelWithNumber={`${this.props.questionNumber}. ${this.props.data.props.label}`} {...this.props} />
             <Element data={this.props.data} {...this.props.data.props} {...props} />
