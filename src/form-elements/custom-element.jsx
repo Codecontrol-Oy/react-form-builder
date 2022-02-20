@@ -9,7 +9,7 @@ class CustomElement extends Component {
   constructor(props) {
     super(props);
     this.inputField = React.createRef();
-    this.questionNumber = this.props.questionNumber
+    this.questionNumber = props.questionNumber
   }
 
   render() {
@@ -39,7 +39,7 @@ class CustomElement extends Component {
         { bare ?
           <Element data={this.props.data} {...this.props.data.props} {...props} /> :
           <div className="form-group">
-            <ComponentLabel className="form-label" label={`${this.questionNumber}. ${this.props.data.label}`} {...this.props} />
+            <ComponentLabel className="form-label" label={`${this.props.questionNumber}. ${this.props.data.props.label}`} {...this.props} />
             <Element data={this.props.data} {...this.props.data.props} {...props} />
           </div>
         }
