@@ -42,7 +42,7 @@ export default class Toolbar extends React.Component {
     super(props);
     //const items = buildItems(props.items, this._defaultItems());
     const items = buildItemGroups(props.items, this._defaultItems())
-    console.log(items)
+    console.log(items, props)
     this.state = {
       items,
     };
