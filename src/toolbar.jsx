@@ -381,10 +381,11 @@ export default class Toolbar extends React.Component {
             this.state.items.map(group => {
               return (
                 <>
-                  <p>{group.name}</p>
+                  <p style={{textAlign: "center"}}>{group.name}</p>
                   {
                     group.items.map((item) => (<ToolbarItem data={item} key={item.key} onClick={this._onClick.bind(this, item)} onCreate={this.create} />))
                   }
+                  <p></p>
                 </>
               )
             })
