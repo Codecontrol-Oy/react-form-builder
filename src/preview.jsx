@@ -10,7 +10,7 @@ import SortableFormElements from './sortable-form-elements';
 
 const { PlaceHolder } = SortableFormElements;
 
-export default class Preview extends React.Component {
+export default class  Preview extends React.Component {
   state = {
     data: [],
     answer_data: {},

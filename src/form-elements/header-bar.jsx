@@ -6,17 +6,14 @@ import React from 'react';
 import Grip from '../multi-column/grip';
 
 export default class HeaderBar extends React.Component {
-  render() {
+  render()  {
     return (
-      <div className="toolbar-header">
-        <span className="badge badge-secondary">{this.props.data.text}</span>
+      <div style={{marginBottom: '8px'}} className="toolbar-header">
+        <span style={{fontWeight: 500, fontSize: '14px'}} className="badge badge-secondary">{this.props.data.text}</span>
         <div className="toolbar-header-buttons">
+          <div style={{fontSize: '14px', fontWeight: 500}} className="btn is-isolated" onClick={this.props.onDestroy.bind(this, this.props.data)}>Muokkaa</div>
           { this.props.data.element !== 'LineBreak' &&
-            <div className="btn is-isolated" onClick={this.props.editModeOn.bind(this.props.parent, this.props.data)}><i className="is-isolated fas fa-edit"></i></div>
-          }
-          <div className="btn is-isolated" onClick={this.props.onDestroy.bind(this, this.props.data)}><i className="is-isolated fas fa-trash"></i></div>
-          { !this.props.data.isContainer &&
-            <Grip data={this.props.data} index={this.props.index} onDestroy={this.props.onDestroy} setAsChild={this.props.setAsChild} />
+            <div style={{fontSize: '14px', fontWeight: 500}} className="btn is-isolated" onClick={this.props.editModeOn.bind(this.props.parent, this.props.data)}>Poista></div>
           }
         </div>
       </div>

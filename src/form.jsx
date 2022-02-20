@@ -267,7 +267,7 @@ export default class ReactForm extends React.Component {
     return (<Element mutable={true} key={`form_${item.id}`} data={item} />);
   }
 
-  getCustomElement(item) {
+  getCustomElement(item, number) {
     if (!item.component || typeof item.component !== 'function') {
       item.component = Registry.get(item.key);
       if (!item.component) {
@@ -282,6 +282,7 @@ export default class ReactForm extends React.Component {
     };
     return (
       <CustomElement
+        questionNumber={number}
         mutable={true}
         read_only={this.props.read_only}
         key={`form_${item.id}`}
@@ -331,10 +332,7 @@ export default class ReactForm extends React.Component {
           if(!item.key.toString().toLowerCase().includes("paragraph") && !item.key.toString().toLowerCase().includes("title") && !this.disableAutomaticNumberingForKeys.includes(item.key.toString())) {
             const currNumber = questionNumber
             questionNumber = questionNumber + 1;
-            return <div>
-              <h3>{currNumber}. Kysymys</h3>
-              {this.getCustomElement(item)}
-            </div>
+            return this.getCustomElement(item, currNumber)
           }
           return this.getCustomElement(item);
         case 'FourColumnRow':

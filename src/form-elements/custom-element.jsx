@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import ComponentHeader from './component-header';
 import ComponentLabel from './component-label';
 
+function WrappedComponentLabel({questionNumber, ...props}) {
+
+}
 class CustomElement extends Component {
   constructor(props) {
     super(props);
     this.inputField = React.createRef();
+    this.questionNumber = this.props.questionNumber
   }
 
   render() {
@@ -35,7 +39,7 @@ class CustomElement extends Component {
         { bare ?
           <Element data={this.props.data} {...this.props.data.props} {...props} /> :
           <div className="form-group">
-            <ComponentLabel className="form-label" {...this.props} />
+            <ComponentLabel className="form-label" label={`${this.questionNumber}. ${this.props.data.label}`} {...this.props} />
             <Element data={this.props.data} {...this.props.data.props} {...props} />
           </div>
         }
