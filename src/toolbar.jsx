@@ -8,7 +8,7 @@ import ID from './UUID';
 import store from './stores/store';
 
 function buildItemGroups(itemGroups, defaultItems) {
-  if(itemGroups.length > 0) {
+  if(itemGroups && itemGroups.length > 0) {
     return itemGroups.map((group) => {
       let modifiedGroup = JSON.parse(JSON.stringify(group))
       let modifiedItems = [...group.items]
@@ -17,7 +17,7 @@ function buildItemGroups(itemGroups, defaultItems) {
       console.log(modifiedGroup)
       return modifiedGroup
     })
-  }
+  } else return []
 }
 function isDefaultItem(item) {
   const keys = Object.keys(item);
