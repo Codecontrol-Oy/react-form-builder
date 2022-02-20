@@ -3,7 +3,7 @@ import myxss from './myxss';
 
 const ComponentLabel = (props) => {
   const hasRequiredLabel = (props.data.hasOwnProperty('required') && props.data.required === true && !props.read_only);
-  const labelText = myxss.process(props.label);
+  const labelText = myxss.process(props.labelWithNumber);
   return (
     <label className={props.className || ''}>
       <span dangerouslySetInnerHTML={{ __html: labelText }}/>
