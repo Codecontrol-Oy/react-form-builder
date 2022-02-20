@@ -7,6 +7,17 @@ import ToolbarItem from './toolbar-draggable-item';
 import ID from './UUID';
 import store from './stores/store';
 
+function buildItemGroups(itemGroups, defaultItems) {
+  if(itemGroups.length > 0) {
+    return itemGroups.map((group) => {
+      let modifiedGroup = JSON.parse(JSON.stringify(group))
+      let modifiedItems = [...group.items]
+      modifiedItems = buildItems(modifiedItems, defaultItems)
+      modifiedGroup.items = modifiedItems
+      return modifiedGroup
+    })
+  }
+}
 function isDefaultItem(item) {
   const keys = Object.keys(item);
   return keys.filter(x => x !== 'element' && x !== 'key').length === 0;
@@ -28,8 +39,8 @@ function buildItems(items, defaultItems) {
 export default class Toolbar extends React.Component {
   constructor(props) {
     super(props);
-
-    const items = buildItems(props.items, this._defaultItems());
+    //const items = buildItems(props.items, this._defaultItems());
+    const items = buildItemGroups(props.items, this._defaultItems())
     this.state = {
       items,
     };
@@ -362,10 +373,18 @@ export default class Toolbar extends React.Component {
   render() {
     return (
       <div className="col-md-3 react-form-builder-toolbar float-right">
-        <h4>Toolbox</h4>
         <ul>
           {
-            this.state.items.map((item) => (<ToolbarItem data={item} key={item.key} onClick={this._onClick.bind(this, item)} onCreate={this.create} />))
+            this.state.items.map(group => {
+              return (
+                <>
+                  <p>{group.name}</p>
+                  {
+                    group.items.map((item) => (<ToolbarItem data={item} key={item.key} onClick={this._onClick.bind(this, item)} onCreate={this.create} />))
+                  }
+                </>
+              )
+            })
           }
         </ul>
       </div>
