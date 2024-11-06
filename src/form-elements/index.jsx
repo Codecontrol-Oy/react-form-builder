@@ -2,7 +2,7 @@
 import React from 'react';
 import Select from 'react-select';
 import SignaturePad from 'react-signature-canvas';
-import ReactBootstrapSlider from 'react-bootstrap-slider';
+import Slider from 'rc-slider';
 
 import StarRating from './star-rating';
 import HeaderBar from './header-bar';
@@ -624,10 +624,9 @@ class Range extends React.Component {
     };
   }
 
-  changeValue = (e) => {
-    const { target } = e;
+  changeValue = (value) => {
     this.setState({
-      value: target.value,
+      value,
     });
   }
 
@@ -642,7 +641,7 @@ class Range extends React.Component {
     props.step = this.props.data.step;
 
     props.value = this.state.value;
-    props.change = this.changeValue;
+    props.onChange = this.changeValue;
 
     if (this.props.mutable) {
       props.ref = this.inputField;
@@ -680,7 +679,7 @@ class Range extends React.Component {
               <span className="float-left">{this.props.data.min_label}</span>
               <span className="float-right">{this.props.data.max_label}</span>
             </div>
-            <ReactBootstrapSlider {...props} />
+            <Slider {...props} />
           </div>
           <div className="visible_marks">
             {visible_marks}
