@@ -136,15 +136,14 @@ class DatePicker extends React.Component {
                 ref={props.ref}
                 onChange={this.handleChange}
                 selected={this.state.internalValue}
-                inputClass="form-control"
-                clearButton={true}
+                inputclass="form-control"
                 // todayButton={'Today'}
                 // className = "form-control"
                 // isClearable={true}
-                showTimeSelect={showTimeSelect}
-                showTimeSelectOnly={showTimeSelectOnly}
+                showtimeselect={showTimeSelect}
+                showtimeselectonly={showTimeSelectOnly}
                 dateFormat={this.state.formatMask}
-                portalId="root-portal"
+                portalid="root-portal"
                 autoComplete="off"
                 placeholderText={placeholderText} />
             }
