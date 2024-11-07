@@ -52,7 +52,7 @@
     "react-draft-wysiwyg": "~1.15.0",
     "react-select": "^5.8.2",
     "react-signature-canvas": "^1.0.3",
-    "react-textarea-autosize": "^7.1.2",
+    "react-textarea-autosize": "^8.5.4",
     "xss": "^1.0.8"
   },
   "peerDependencies": {
