@@ -1,6 +1,6 @@
 import React from 'react';
 import { format, parse } from 'date-fns';
-import ReactDatePicker from 'react-datepicker';
+import { DatePickerInput } from 'rc-datepicker';
 import ComponentHeader from './component-header';
 import ComponentLabel from './component-label';
 
@@ -131,14 +131,16 @@ class DatePicker extends React.Component {
                      className = "form-control" />
             }
             { !iOS && !readOnly &&
-              <ReactDatePicker
+              <DatePickerInput
                 name={props.name}
                 ref={props.ref}
                 onChange={this.handleChange}
                 selected={this.state.internalValue}
-                todayButton={'Today'}
-                className = "form-control"
-                isClearable={true}
+                inputClass="form-control"
+                clearButton={true}
+                // todayButton={'Today'}
+                // className = "form-control"
+                // isClearable={true}
                 showTimeSelect={showTimeSelect}
                 showTimeSelectOnly={showTimeSelectOnly}
                 dateFormat={this.state.formatMask}
