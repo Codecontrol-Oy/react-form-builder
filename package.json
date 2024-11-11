@@ -1,5 +1,5 @@
 {
-  "name": "@codecontrol-oy/react-form-builder2",
+  "name": "@codecontrol/react-form-builder2",
   "version": "0.10.2",
   "description": "A complete form builder for react.",
   "main": "lib/index.js",
